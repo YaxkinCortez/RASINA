@@ -166,29 +166,18 @@ public class Registrar extends javax.swing.JInternalFrame {
         } else if (tipo.getSelectedItem().equals("TIPO")) {
             JOptionPane.showMessageDialog(null, "Seleccione un tipo de usuario", "REGISTRAR", 0);
         } else {
-            if (tipo.getSelectedItem().equals("ADMINISTRADOR")) {
-                mr.setNombre(nombre.getText());
-                mr.setContra(contra.getText());
-                mr.setTipo(1);
-                limpiaCampos();
-                int op = CUsuarios.registrar(mr);
-                if(op!=0){
+            mr.setNombre(nombre.getText());
+            mr.setContra(contra.getText());
+            mr.setTipo(tipo.getSelectedItem().toString());
+            limpiaCampos();
+            int op = CUsuarios.registrar(mr);
+            if (op != 0) {
                 JOptionPane.showMessageDialog(this, "Registro éxitoso.", "REGISTRAR", 0,
                         new ImageIcon(getClass().getResource("/img/realizado.png")));
-                }
-            } else {
-                mr.setNombre(nombre.getText());
-                mr.setContra(contra.getText());
-                mr.setTipo(2);
-                limpiaCampos();
-                int op = CUsuarios.registrar(mr);
-                if(op !=0){
-                JOptionPane.showMessageDialog(this, "Registro éxitoso.", "REGISTRAR", 0,
-                        new ImageIcon(getClass().getResource("/img/realizado.png")));
-                }
             }
         }
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField contra;

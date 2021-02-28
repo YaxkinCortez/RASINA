@@ -16,13 +16,14 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author yaxkin-pc
  */
-public class Actualizar extends javax.swing.JInternalFrame {
+public class Eliminar extends javax.swing.JInternalFrame {
 
     MUsuarios mu = new MUsuarios();
+
     /**
      * Creates new form Eliminar
      */
-    public Actualizar() {
+    public Eliminar() {
         initComponents();
         //CUsuarios.llenarCombo();
         //CUsuarios.llenarComboTipoUsuario();
@@ -31,32 +32,18 @@ public class Actualizar extends javax.swing.JInternalFrame {
             @Override
             public void valueChanged(ListSelectionEvent lse) {
                 if (tb.getSelectedRow() != -1) {
-                    cambiaDatos();
                     selecionRegistro = true;
                 }
             }
         });
     }
 
-    void cambiaDatos() {
-        int fila = tb.getSelectedRow();
-        nombre.setText(tb.getValueAt(fila, 0).toString());
-        contra.setText(tb.getValueAt(fila, 1).toString());
-        tipo.setSelectedItem(tb.getValueAt(fila, 2).toString());       
-    }
-    
     boolean selecionRegistro = false;
-    
 
     void limpiaCampos() {
-        nombre.setText("");
-        contra.setText("");
-        tipo.setSelectedItem("TIPO");
         selecionRegistro = false;
         CUsuarios.llenarTabla();
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,15 +55,9 @@ public class Actualizar extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        nombre = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        tipo = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         aceptar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
-        contra = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb = new javax.swing.JTable();
 
@@ -86,29 +67,13 @@ public class Actualizar extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel1.setText("NOMBRE");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel2.setText("CONTRASEÑA");
-        jLabel2.setToolTipText("");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel3.setText("TIPO USUARIO");
-        jLabel3.setMaximumSize(new java.awt.Dimension(92, 17));
-        jLabel3.setMinimumSize(new java.awt.Dimension(92, 17));
-        jLabel3.setPreferredSize(new java.awt.Dimension(92, 17));
-
-        tipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TIPO", "ADMINISTRADOR", "MAESTRO" }));
-
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("ACTUALIZAR USUARIOS");
+        jLabel4.setText("ELIMINAR USUARIOS");
 
         aceptar.setBackground(new java.awt.Color(255, 255, 255));
         aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/aceptar.png"))); // NOI18N
-        aceptar.setText("ACEPTAR");
+        aceptar.setText("ELIMINAR");
         aceptar.setBorderPainted(false);
         aceptar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         aceptar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -135,52 +100,29 @@ public class Actualizar extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombre)
-                            .addComponent(tipo, 0, 144, Short.MAX_VALUE)
-                            .addComponent(contra))))
-                .addGap(53, 53, 53))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(42, 42, 42)
                 .addComponent(cancelar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(116, 116, 116))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contra, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cancelar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(aceptar))
-                .addGap(30, 30, 30))
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 410));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 150));
 
         tb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -208,46 +150,49 @@ public class Actualizar extends javax.swing.JInternalFrame {
             tb.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 390, 410));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 420, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        actualizar();
+        eliminar();
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         limpiaCampos();
     }//GEN-LAST:event_cancelarActionPerformed
 
-    private void actualizar() {
-        if (contra.getText().equals("") && nombre.getText().equals("") && tipo.getSelectedItem().equals("TIPO")) {
-            JOptionPane.showMessageDialog(null, "Seleccione un usuarios de la tabla", "ERROR", JOptionPane.ERROR_MESSAGE);
+    private void eliminar() {
+        if (tb.getRowCount() > 0) {
+            if (tb.getSelectedRowCount() > 0) {
+                if (JOptionPane.showConfirmDialog(this, "Esta a punto de eliminar\n"
+                        + "un registro.\n¿Desea continuar?", "ELIMINAR",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE)
+                        == JOptionPane.YES_OPTION) {
+                    int fila = tb.getSelectedRow();
+                    String id = tb.getValueAt(fila, 0).toString();
+                    int elimina = CUsuarios.eliminarUsuario(id);
+                    if (elimina != 0) {
+                        limpiaCampos();
+                        JOptionPane.showMessageDialog(this, "Registro eliminado.", "ELIMINAR", 0,
+                                new ImageIcon(getClass().getResource("/img/realizado.png")));
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Seleccione un registro.", "ELIMINAR", JOptionPane.INFORMATION_MESSAGE);
+            }
+
         } else {
-            mu.setNombre(nombre.getText());
-            mu.setContra(contra.getText());
-            mu.setTipo(tipo.getSelectedItem().toString());
-            int op=CUsuarios.actualizarFull(mu);
-            if(op!=0){
-                JOptionPane.showMessageDialog(this, "Actualizacion éxitosa.", "ACTUALIZADO", 0,
-                        new ImageIcon(getClass().getResource("/img/realizado.png")));
-                limpiaCampos();
-            } 
-    }
+            JOptionPane.showMessageDialog(this, "No hay registros\npara eliminar.", "ELIMINAR", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptar;
     private javax.swing.JButton cancelar;
-    private javax.swing.JPasswordField contra;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nombre;
     public static javax.swing.JTable tb;
-    public static javax.swing.JComboBox<String> tipo;
     // End of variables declaration//GEN-END:variables
 }

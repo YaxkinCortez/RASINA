@@ -201,7 +201,7 @@ public class Login extends javax.swing.JFrame {
                         dato = rs2.getString(1);
                     }
 
-                    if (dato.equals("1")) {
+                    if (dato.equals("ADMINISTRADOR")) {
 
                         String sql3 = "SELECT nombre FROM maestros WHERE nombre = '" + u + "'";
                         Statement st3 = cn.createStatement();
@@ -214,7 +214,6 @@ public class Login extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "BIENVENIDO " + dato, "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
                         //mp.UserConect.setText(dato);
                         mp.setVisible(true);
-                        mp.setSize(1090, 710);
                         mp.setLocationRelativeTo(null);
                     } else {
                         String sql3 = "SELECT nombre FROM maestros WHERE nombre = '" + u + "'";

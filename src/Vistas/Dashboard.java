@@ -18,7 +18,8 @@ public class Dashboard extends javax.swing.JFrame {
      * Creates new form Dashboard
      */
     Registrar re = new Registrar();
-    Actualizar ac = new Actualizar();
+    Eliminar el = new Eliminar();
+    Actualizar ac=new Actualizar();
 
     public Dashboard() {
         initComponents();
@@ -125,6 +126,11 @@ public class Dashboard extends javax.swing.JFrame {
         jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/quitar-usuario.png"))); // NOI18N
         jMenuItem3.setText("Eliminar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
@@ -218,7 +224,14 @@ public class Dashboard extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         escritorio.add(ac);
         ac.show();
+        ac.setLocation(2, 30);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        escritorio.add(el);
+        el.show();
+        el.setLocation(2, 30);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /*class horas implements ActionListener {
 
