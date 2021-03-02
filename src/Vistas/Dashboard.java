@@ -17,9 +17,12 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
-    Registrar re = new Registrar();
-    Eliminar el = new Eliminar();
-    Actualizar ac=new Actualizar();
+    RegistrarMaestro re = new RegistrarMaestro();
+    EliminarMaestro el = new EliminarMaestro();
+    ActualizarMaestro ac = new ActualizarMaestro();
+    RegistrarAlumno ra = new RegistrarAlumno();
+    EliminarAlumno ea = new EliminarAlumno();
+    ActualizarAlumno al = new ActualizarAlumno();
 
     public Dashboard() {
         initComponents();
@@ -43,13 +46,13 @@ public class Dashboard extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        RM = new javax.swing.JMenuItem();
+        AM = new javax.swing.JMenuItem();
+        EM = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        RA = new javax.swing.JMenuItem();
+        AA = new javax.swing.JMenuItem();
+        EA = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -103,55 +106,70 @@ public class Dashboard extends javax.swing.JFrame {
         jMenu1.setText("Usuarios");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registro (1).png"))); // NOI18N
-        jMenuItem2.setText("Registrar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        RM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        RM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registro (1).png"))); // NOI18N
+        RM.setText("Registrar");
+        RM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                RMActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(RM);
 
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/rotacion.png"))); // NOI18N
-        jMenuItem1.setText("Actualizar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        AM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/rotacion.png"))); // NOI18N
+        AM.setText("Actualizar");
+        AM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                AMActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(AM);
 
-        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/quitar-usuario.png"))); // NOI18N
-        jMenuItem3.setText("Eliminar");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        EM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        EM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/quitar-usuario.png"))); // NOI18N
+        EM.setText("Eliminar");
+        EM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                EMActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(EM);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Alumnos");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registro (1).png"))); // NOI18N
-        jMenuItem4.setText("Registrar");
-        jMenu2.add(jMenuItem4);
+        RA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        RA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/registro (1).png"))); // NOI18N
+        RA.setText("Registrar");
+        RA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RAActionPerformed(evt);
+            }
+        });
+        jMenu2.add(RA);
 
-        jMenuItem5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/rotacion.png"))); // NOI18N
-        jMenuItem5.setLabel("Actualizar");
-        jMenu2.add(jMenuItem5);
+        AA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/rotacion.png"))); // NOI18N
+        AA.setLabel("Actualizar");
+        AA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AAActionPerformed(evt);
+            }
+        });
+        jMenu2.add(AA);
 
-        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/quitar-usuario.png"))); // NOI18N
-        jMenuItem6.setLabel("Eliminar");
-        jMenu2.add(jMenuItem6);
+        EA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        EA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/quitar-usuario.png"))); // NOI18N
+        EA.setLabel("Eliminar");
+        EA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EAActionPerformed(evt);
+            }
+        });
+        jMenu2.add(EA);
 
         jMenuBar1.add(jMenu2);
 
@@ -211,27 +229,43 @@ public class Dashboard extends javax.swing.JFrame {
         tiempo.start();*/
     }//GEN-LAST:event_formWindowOpened
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void RMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RMActionPerformed
         escritorio.add(re);
         re.show();
         re.setLocation(180, 30);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_RMActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void AMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMActionPerformed
         escritorio.add(ac);
         ac.show();
         ac.setLocation(2, 30);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_AMActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void EMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EMActionPerformed
         escritorio.add(el);
         el.show();
         el.setLocation(2, 30);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_EMActionPerformed
+
+    private void AAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AAActionPerformed
+        escritorio.add(al);
+        al.show();
+        al.setLocation(2, 30);
+    }//GEN-LAST:event_AAActionPerformed
+
+    private void RAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RAActionPerformed
+        escritorio.add(ra);
+        ra.show();
+    }//GEN-LAST:event_RAActionPerformed
+
+    private void EAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EAActionPerformed
+        escritorio.add(ea);
+        ea.show();
+    }//GEN-LAST:event_EAActionPerformed
 
     /*class horas implements ActionListener {
 
@@ -280,20 +314,20 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AA;
+    private javax.swing.JMenuItem AM;
+    private javax.swing.JMenuItem EA;
+    private javax.swing.JMenuItem EM;
+    private javax.swing.JMenuItem RA;
+    private javax.swing.JMenuItem RM;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;

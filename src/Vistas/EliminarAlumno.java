@@ -5,8 +5,7 @@
  */
 package Vistas;
 
-import Controlador.CUsuarios;
-import Modelos.MUsuarios;
+import Controlador.CAlumno;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
@@ -16,17 +15,13 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author yaxkin-pc
  */
-public class Eliminar extends javax.swing.JInternalFrame {
-
-    MUsuarios mu = new MUsuarios();
+public class EliminarAlumno extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Eliminar
+     * Creates new form EliminarAlumno
      */
-    public Eliminar() {
+    public EliminarAlumno() {
         initComponents();
-        //CUsuarios.llenarCombo();
-        //CUsuarios.llenarComboTipoUsuario();
         limpiaCampos();
         tb.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -42,7 +37,7 @@ public class Eliminar extends javax.swing.JInternalFrame {
 
     void limpiaCampos() {
         selecionRegistro = false;
-        CUsuarios.llenarTabla();
+        CAlumno.llenarTablaEliminar();
     }
 
     /**
@@ -126,17 +121,17 @@ public class Eliminar extends javax.swing.JInternalFrame {
 
         tb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Nombre", "Contraseña", "Tipo"
+                "Nombre"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -146,8 +141,6 @@ public class Eliminar extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tb);
         if (tb.getColumnModel().getColumnCount() > 0) {
             tb.getColumnModel().getColumn(0).setResizable(false);
-            tb.getColumnModel().getColumn(1).setResizable(false);
-            tb.getColumnModel().getColumn(2).setResizable(false);
         }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 420, 240));
@@ -172,7 +165,7 @@ public class Eliminar extends javax.swing.JInternalFrame {
                         == JOptionPane.YES_OPTION) {
                     int fila = tb.getSelectedRow();
                     String id = tb.getValueAt(fila, 0).toString();
-                    int elimina = CUsuarios.eliminarUsuario(id);
+                    int elimina = CAlumno.eliminarUsuario(id);
                     if (elimina != 0) {
                         limpiaCampos();
                         JOptionPane.showMessageDialog(this, "Registro eliminado.", "ELIMINAR", 0,
@@ -187,6 +180,7 @@ public class Eliminar extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "No hay registros\npara eliminar.", "ELIMINAR", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptar;
     private javax.swing.JButton cancelar;

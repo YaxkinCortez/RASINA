@@ -2,16 +2,15 @@ package Controlador;
 
 import Conexion.Conexion;
 import Modelos.MUsuarios;
-import Vistas.Eliminar;
+import Vistas.*;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static Vistas.Eliminar.tb;
-//import static Vistas.Eliminar.bus;
-//import static Vistas.Eliminar.tipo;
+//import static Vistas.EliminarMaestro.bus;
+//import static Vistas.EliminarMaestro.tipo;
+
 /**
  *
  * @author yaxkin-pc
@@ -23,8 +22,6 @@ public class CUsuarios extends Conexion {
     static PreparedStatement ps;
     static ResultSet rs;
     static Statement st;
-
-    Eliminar ac = new Eliminar();
 
     public static int registrar(MUsuarios mr) {
         int rsu = 0;
@@ -57,8 +54,7 @@ public class CUsuarios extends Conexion {
             JOptionPane.showMessageDialog(null, ex);
         }
     }*/
-    
-    /*public static void llenarComboTipoUsuario() {
+ /*public static void llenarComboTipoUsuario() {
         String sql = MUsuarios.seleccionar;
         try {
             ps = cn.prepareStatement(sql);
@@ -73,9 +69,6 @@ public class CUsuarios extends Conexion {
             JOptionPane.showMessageDialog(null, ex);
         }
     }*/
-
-    
-
     public static int actualizarFull(MUsuarios mr) {
         int rsu = 0;
         String sql = MUsuarios.actualizarFull;
@@ -84,7 +77,7 @@ public class CUsuarios extends Conexion {
             ps.setString(1, mr.getNombre());
             ps.setString(2, mr.getContra());
             ps.setString(3, mr.getTipo());
-            ps.setString(4, mr.getNombre());
+            ps.setString(4, mr.getID());
             rsu = ps.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -92,7 +85,7 @@ public class CUsuarios extends Conexion {
         System.out.println(sql);
         return rsu;
     }
-    
+
     public static int eliminarUsuario(String id) {
         int rsu = 0;
         String sql = MUsuarios.borrar;
@@ -106,37 +99,37 @@ public class CUsuarios extends Conexion {
         System.out.println(sql);
         return rsu;
     }
-    
-    public static void llenarTabla(){
-         DefaultTableModel modelo = (DefaultTableModel) Eliminar.tb.getModel();
 
+    public static void llenarTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) ActualizarMaestro.tb.getModel();
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        String sql = MUsuarios.seleccionar;
-        String datos[] = new String[10];
+        String sql = MUsuarios.tablaActualizar;
+        String datos[] = new String[4];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                datos[0] = rs.getString("nombre");
-                datos[1] = rs.getString("contra");
-                datos[2] = rs.getString("tipo");
+                datos[0] = rs.getString("id");
+                datos[1] = rs.getString("nombre");
+                datos[2] = rs.getString("contra");
+                datos[3] = rs.getString("tipo");
                 modelo.addRow(datos);
             }
         } catch (SQLException ex) {
             Logger.getLogger(CUsuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public static void llenarTablaEliminar(){
-         DefaultTableModel modelo = (DefaultTableModel) Eliminar.tb.getModel();
+
+    public static void llenarTablaEliminar() {
+        DefaultTableModel modelo = (DefaultTableModel) EliminarMaestro.tb.getModel();
 
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
         String sql = MUsuarios.seleccionar;
-        String datos[] = new String[10];
+        String datos[] = new String[3];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
