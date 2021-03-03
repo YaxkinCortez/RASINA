@@ -35,7 +35,7 @@ public class CUsuarios extends Conexion {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        System.out.println(sql);
+        //System.out.println(sql);
         return rsu;
     }
 
@@ -95,6 +95,7 @@ public class CUsuarios extends Conexion {
             ps.setString(1, id);
             rsu = ps.executeUpdate();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         System.out.println(sql);
         return rsu;
@@ -119,6 +120,7 @@ public class CUsuarios extends Conexion {
             }
         } catch (SQLException ex) {
             Logger.getLogger(CUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }
 
@@ -141,6 +143,7 @@ public class CUsuarios extends Conexion {
             }
         } catch (SQLException ex) {
             Logger.getLogger(CUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }
 }

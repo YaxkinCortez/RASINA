@@ -17,12 +17,15 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
-    RegistrarMaestro re = new RegistrarMaestro();
-    EliminarMaestro el = new EliminarMaestro();
-    ActualizarMaestro ac = new ActualizarMaestro();
+    RegistrarMaestro rm = new RegistrarMaestro();
+    EliminarMaestro em = new EliminarMaestro();
+    ActualizarMaestro am = new ActualizarMaestro();
     RegistrarAlumno ra = new RegistrarAlumno();
     EliminarAlumno ea = new EliminarAlumno();
     ActualizarAlumno al = new ActualizarAlumno();
+    RegistrarMateria rma=new RegistrarMateria();
+    ActualizarMateria ama=new ActualizarMateria();
+    EliminarMateria ema=new EliminarMateria();
 
     public Dashboard() {
         initComponents();
@@ -43,7 +46,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        escritorio = new javax.swing.JDesktopPane();
+        escritorio = new Escritorio.Escritorio();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         RM = new javax.swing.JMenuItem();
@@ -54,9 +57,10 @@ public class Dashboard extends javax.swing.JFrame {
         AA = new javax.swing.JMenuItem();
         EA = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        AC = new javax.swing.JMenuItem();
+        MC = new javax.swing.JMenuItem();
+        EC = new javax.swing.JMenuItem();
+        Asistentes = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -176,20 +180,40 @@ public class Dashboard extends javax.swing.JFrame {
         jMenu3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenu3.setLabel("Cursos");
 
-        jMenuItem7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-archivo.png"))); // NOI18N
-        jMenuItem7.setLabel("Agregar");
-        jMenu3.add(jMenuItem7);
+        AC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        AC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar-archivo.png"))); // NOI18N
+        AC.setLabel("Agregar");
+        AC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ACActionPerformed(evt);
+            }
+        });
+        jMenu3.add(AC);
 
-        jMenuItem8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/archivo.png"))); // NOI18N
-        jMenuItem8.setLabel("Modificar");
-        jMenu3.add(jMenuItem8);
+        MC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        MC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/archivo.png"))); // NOI18N
+        MC.setLabel("Modificar");
+        MC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MCActionPerformed(evt);
+            }
+        });
+        jMenu3.add(MC);
 
-        jMenuItem9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
-        jMenuItem9.setLabel("Eliminar");
-        jMenu3.add(jMenuItem9);
+        EC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        EC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
+        EC.setLabel("Eliminar");
+        EC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ECActionPerformed(evt);
+            }
+        });
+        jMenu3.add(EC);
+
+        Asistentes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Asistentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/grupo.png"))); // NOI18N
+        Asistentes.setText("Asistentes");
+        jMenu3.add(Asistentes);
 
         jMenuBar1.add(jMenu3);
 
@@ -230,9 +254,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void RMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RMActionPerformed
-        escritorio.add(re);
-        re.show();
-        re.setLocation(180, 30);
+        escritorio.add(rm);
+        rm.show();
+        rm.setLocation(180, 30);
     }//GEN-LAST:event_RMActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
@@ -240,15 +264,15 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void AMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AMActionPerformed
-        escritorio.add(ac);
-        ac.show();
-        ac.setLocation(2, 30);
+        escritorio.add(am);
+        am.show();
+        am.setLocation(2, 30);
     }//GEN-LAST:event_AMActionPerformed
 
     private void EMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EMActionPerformed
-        escritorio.add(el);
-        el.show();
-        el.setLocation(2, 30);
+        escritorio.add(em);
+        em.show();
+        em.setLocation(2, 30);
     }//GEN-LAST:event_EMActionPerformed
 
     private void AAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AAActionPerformed
@@ -266,6 +290,21 @@ public class Dashboard extends javax.swing.JFrame {
         escritorio.add(ea);
         ea.show();
     }//GEN-LAST:event_EAActionPerformed
+
+    private void ACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ACActionPerformed
+        escritorio.add(rma);
+        rma.show();
+    }//GEN-LAST:event_ACActionPerformed
+
+    private void MCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MCActionPerformed
+        escritorio.add(ama);
+        ama.show();
+    }//GEN-LAST:event_MCActionPerformed
+
+    private void ECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ECActionPerformed
+        escritorio.add(ema);
+        ema.show();
+    }//GEN-LAST:event_ECActionPerformed
 
     /*class horas implements ActionListener {
 
@@ -315,9 +354,13 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AA;
+    private javax.swing.JMenuItem AC;
     private javax.swing.JMenuItem AM;
+    private javax.swing.JMenuItem Asistentes;
     private javax.swing.JMenuItem EA;
+    private javax.swing.JMenuItem EC;
     private javax.swing.JMenuItem EM;
+    private javax.swing.JMenuItem MC;
     private javax.swing.JMenuItem RA;
     private javax.swing.JMenuItem RM;
     private javax.swing.JDesktopPane escritorio;
@@ -328,9 +371,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables

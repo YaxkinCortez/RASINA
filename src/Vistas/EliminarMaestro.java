@@ -25,6 +25,8 @@ public class EliminarMaestro extends javax.swing.JInternalFrame {
      */
     public EliminarMaestro() {
         initComponents();
+        tb.getTableHeader().setDefaultRenderer(new Escritorio.EstiloTablaHeader());
+        tb.setDefaultRenderer(Object.class, new Escritorio.EstiloTablaRenderer());
         //CUsuarios.llenarCombo();
         //CUsuarios.llenarComboTipoUsuario();
         limpiaCampos();

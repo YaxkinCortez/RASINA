@@ -17,7 +17,7 @@ import javax.swing.event.ListSelectionListener;
  * @author yaxkin-pc
  */
 public class ActualizarMaestro extends javax.swing.JInternalFrame {
-    
+
     MUsuarios mu = new MUsuarios();
 
     /**
@@ -25,6 +25,8 @@ public class ActualizarMaestro extends javax.swing.JInternalFrame {
      */
     public ActualizarMaestro() {
         initComponents();
+        tb.getTableHeader().setDefaultRenderer(new Escritorio.EstiloTablaHeader());
+        tb.setDefaultRenderer(Object.class, new Escritorio.EstiloTablaRenderer());
         //CUsuarios.llenarCombo();
         //CUsuarios.llenarComboTipoUsuario();
         limpiaCampos();
@@ -38,7 +40,7 @@ public class ActualizarMaestro extends javax.swing.JInternalFrame {
             }
         });
     }
-    
+
     void cambiaDatos() {
         int fila = tb.getSelectedRow();
         ID.setText(tb.getValueAt(fila, 0).toString());
@@ -46,9 +48,9 @@ public class ActualizarMaestro extends javax.swing.JInternalFrame {
         contra.setText(tb.getValueAt(fila, 2).toString());
         tipo.setSelectedItem(tb.getValueAt(fila, 3).toString());
     }
-    
+
     boolean selecionRegistro = false;
-    
+
     void limpiaCampos() {
         nombre.setText("");
         ID.setText("");
@@ -87,6 +89,8 @@ public class ActualizarMaestro extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 115, 144, 31));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
@@ -139,6 +143,8 @@ public class ActualizarMaestro extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 321, -1, -1));
+
+        contra.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel1.add(contra, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 175, 144, 31));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 410));
@@ -184,7 +190,7 @@ public class ActualizarMaestro extends javax.swing.JInternalFrame {
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         limpiaCampos();
     }//GEN-LAST:event_cancelarActionPerformed
-    
+
     private void actualizar() {
         if (contra.getText().equals("") && nombre.getText().equals("") && tipo.getSelectedItem().equals("TIPO")) {
             JOptionPane.showMessageDialog(null, "Seleccione un usuarios de la tabla", "ERROR", JOptionPane.ERROR_MESSAGE);

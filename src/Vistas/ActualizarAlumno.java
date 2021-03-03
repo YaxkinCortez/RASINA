@@ -25,6 +25,8 @@ public class ActualizarAlumno extends javax.swing.JInternalFrame {
      */
     public ActualizarAlumno() {
         initComponents();
+        tb.getTableHeader().setDefaultRenderer(new Escritorio.EstiloTablaHeader());
+        tb.setDefaultRenderer(Object.class, new Escritorio.EstiloTablaRenderer());
         limpiaCampos();
         tb.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
