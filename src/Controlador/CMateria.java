@@ -75,7 +75,7 @@ public class CMateria extends Conexion {
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-        String sql = MMateria.seleccionarTablaActualizar;
+        String sql = MMateria.tablaActualizar;
         String datos[] = new String[2];
         try {
             Statement st = cn.createStatement();
@@ -87,12 +87,12 @@ public class CMateria extends Conexion {
             }
         } catch (SQLException ex) {
             Logger.getLogger(CUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
 
     public static void llenarTablaElminiar() {
-        DefaultTableModel modelo = (DefaultTableModel) ActualizarMateria.tb.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) EliminarMateria.tb.getModel();
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }

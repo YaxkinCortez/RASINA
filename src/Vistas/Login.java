@@ -28,6 +28,7 @@ public class Login extends javax.swing.JFrame {
     PlaceHolder pd;
     Conexion cc = new Conexion();
     Connection cn = cc.GetConexion();
+    Dashboard mp = new Dashboard();
 
     public Login() {
         initComponents();
@@ -210,7 +211,6 @@ public class Login extends javax.swing.JFrame {
                             dato = rs3.getString(1);
                         }
                         dispose();
-                        Dashboard mp = new Dashboard();
                         JOptionPane.showMessageDialog(this, "BIENVENIDO " + dato, "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
                         //mp.UserConect.setText(dato);
                         mp.setVisible(true);

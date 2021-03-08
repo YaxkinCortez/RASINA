@@ -104,7 +104,7 @@ public class ActualizarAlumno extends javax.swing.JInternalFrame {
                 aceptarActionPerformed(evt);
             }
         });
-        jPanel2.add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 321, 87, -1));
+        jPanel2.add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 321, 100, -1));
 
         cancelar.setBackground(new java.awt.Color(255, 255, 255));
         cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/cancelar.png"))); // NOI18N

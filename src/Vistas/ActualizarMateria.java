@@ -25,9 +25,9 @@ public class ActualizarMateria extends javax.swing.JInternalFrame {
      */
     public ActualizarMateria() {
         initComponents();
-        limpiaCampos();
         tb.getTableHeader().setDefaultRenderer(new Escritorio.EstiloTablaHeader());
         tb.setDefaultRenderer(Object.class, new Escritorio.EstiloTablaRenderer());
+        limpiaCampos();
         tb.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent lse) {
@@ -121,8 +121,8 @@ public class ActualizarMateria extends javax.swing.JInternalFrame {
                             .addComponent(curso, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jButton2)))
                 .addContainerGap(26, Short.MAX_VALUE))

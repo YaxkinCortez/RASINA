@@ -1,13 +1,5 @@
 package Vistas;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
-
 /**
  *
  * @author yaxkin-pc
@@ -23,9 +15,10 @@ public class Dashboard extends javax.swing.JFrame {
     RegistrarAlumno ra = new RegistrarAlumno();
     EliminarAlumno ea = new EliminarAlumno();
     ActualizarAlumno al = new ActualizarAlumno();
-    RegistrarMateria rma=new RegistrarMateria();
-    ActualizarMateria ama=new ActualizarMateria();
-    EliminarMateria ema=new EliminarMateria();
+    RegistrarMateria rma = new RegistrarMateria();
+    ActualizarMateria ama = new ActualizarMateria();
+    EliminarMateria ema = new EliminarMateria();
+    RegistrarAlumnoMateria regiAlumMateria = new RegistrarAlumnoMateria();
 
     public Dashboard() {
         initComponents();
@@ -60,7 +53,9 @@ public class Dashboard extends javax.swing.JFrame {
         AC = new javax.swing.JMenuItem();
         MC = new javax.swing.JMenuItem();
         EC = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
         Asistentes = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -210,10 +205,24 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jMenu3.add(EC);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/grupo.png"))); // NOI18N
+        jMenu5.setText("Asistentes");
+
         Asistentes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        Asistentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/grupo.png"))); // NOI18N
-        Asistentes.setText("Asistentes");
-        jMenu3.add(Asistentes);
+        Asistentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/puntualidad.png"))); // NOI18N
+        Asistentes.setText("Agregar");
+        Asistentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AsistentesActionPerformed(evt);
+            }
+        });
+        jMenu5.add(Asistentes);
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar (1).png"))); // NOI18N
+        jMenuItem2.setText("Eliminar");
+        jMenu5.add(jMenuItem2);
+
+        jMenu3.add(jMenu5);
 
         jMenuBar1.add(jMenu3);
 
@@ -306,6 +315,11 @@ public class Dashboard extends javax.swing.JFrame {
         ema.show();
     }//GEN-LAST:event_ECActionPerformed
 
+    private void AsistentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsistentesActionPerformed
+        escritorio.add(regiAlumMateria);
+        regiAlumMateria.setVisible(true);
+    }//GEN-LAST:event_AsistentesActionPerformed
+
     /*class horas implements ActionListener {
 
         @Override
@@ -368,9 +382,11 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables

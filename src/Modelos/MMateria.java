@@ -10,7 +10,7 @@ public class MMateria {
 
     public static String actualizar = "UPDATE materias SET nombreMaterias=? WHERE idMaterias=?";
 
-    public static String seleccionarTablaActualizar = "SELECT * FROM materias";
+    public static String tablaActualizar = "SELECT * FROM materias";
 
     public static String seleccionarTablaEliminar = "SELECT nombreMaterias FROM materias";
 
